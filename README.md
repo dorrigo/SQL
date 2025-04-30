@@ -13,11 +13,11 @@ CREATE TABLE clientes (
     saldo DECIMAL(10,2) DEFAULT 0,
     ativo BOOLEAN DEFAULT TRUE
 );
-
 ```
+## Inserindo valores na Tabela Clientes
 
 ```sql
-INSERT INTO clientes (nome, email, data_nascimento)
+INSERT INTO clientes (id, nome, email, data_nascimento, saldo, ativo)
 VALUES 
     ('1', 'Maria Souza', 'maria@email.com', '1985-08-20', 200.30, TRUE),
     ('2','Carlos Oliveira', 'carlos@email.com', '1995-03-10', 123.00, FALSE),
@@ -25,3 +25,9 @@ VALUES
     ('4','Sabrina Castro', 'sabrina@email.com', '1990-11-22', 534.25, TRUE),
     ('5','Eduardo Lima', 'eduardo@email.com', '1989-09-01', 55.00, TRUE);
 ```
+Consultado a Tabela
+
+```sql
+SELECT * FROM clientes
+```
+
