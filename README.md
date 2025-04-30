@@ -8,22 +8,22 @@ CREATE DATABASE dota2_heroes;
 USE dota2_heroes
 
 CREATE TABLE hero_info(
-   id                INTEGER  NOT NULL PRIMARY KEY 
+   id                INT NOT NULL PRIMARY KEY 
   ,hero              VARCHAR(20) NOT NULL
   ,primary_attribute VARCHAR(15) NOT NULL
-  ,strength          INTEGER  NOT NULL
-  ,agility           INTEGER  NOT NULL
-  ,intelligence      INTEGER  NOT NULL
+  ,strength          INT  NOT NULL
+  ,agility           INT  NOT NULL
+  ,intelligence      INT NOT NULL
   ,str_gain          NUMERIC(3,1) NOT NULL
   ,agi_gain          NUMERIC(3,1) NOT NULL
   ,int_gain          NUMERIC(3,1) NOT NULL
-  ,movement_speed    INTEGER  NOT NULL
-  ,sight_range_day   INTEGER  NOT NULL
-  ,sight_range_night INTEGER  NOT NULL
+  ,movement_speed    INT NOT NULL
+  ,sight_range_day   INT  NOT NULL
+  ,sight_range_night INT NOT NULL
   ,armor             NUMERIC(5,2) NOT NULL
   ,base_attack_speed NUMERIC(3,1) NOT NULL
-  ,min_base_damage   INTEGER  NOT NULL
-  ,max_base_damage   INTEGER  NOT NULL
+  ,min_base_damage   INT  NOT NULL
+  ,max_base_damage   INT  NOT NULL
   ,attack_point      NUMERIC(5,3)
 );
 
