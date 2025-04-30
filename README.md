@@ -1,33 +1,50 @@
-# Como Utilizar SQL
+# Aprendendo SQL com Dota2
 
-### Criando um Banco de Dados e Tabela
+### Criando o Banco de Dados e Tabela
 
 ```sql
-CREATE DATABASE nome_do_banco;
+CREATE DATABASE dota2_heroes;
 
-CREATE TABLE clientes (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE,
-    data_nascimento DATE,
-    saldo DECIMAL(10,2) DEFAULT 0,
-    ativo BOOLEAN DEFAULT TRUE
+USE dota2_heroes
+
+CREATE TABLE hero_info(
+   id                INTEGER  NOT NULL PRIMARY KEY 
+  ,hero              VARCHAR(20) NOT NULL
+  ,primary_attribute VARCHAR(15) NOT NULL
+  ,strength          INTEGER  NOT NULL
+  ,agility           INTEGER  NOT NULL
+  ,intelligence      INTEGER  NOT NULL
+  ,str_gain          NUMERIC(3,1) NOT NULL
+  ,agi_gain          NUMERIC(3,1) NOT NULL
+  ,int_gain          NUMERIC(3,1) NOT NULL
+  ,movement_speed    INTEGER  NOT NULL
+  ,sight_range_day   INTEGER  NOT NULL
+  ,sight_range_night INTEGER  NOT NULL
+  ,armor             NUMERIC(5,2) NOT NULL
+  ,base_attack_speed NUMERIC(3,1) NOT NULL
+  ,min_base_damage   INTEGER  NOT NULL
+  ,max_base_damage   INTEGER  NOT NULL
+  ,attack_point      NUMERIC(5,3)
 );
+
 ```
-## Inserindo valores na Tabela Clientes
+## Os valores da Tabela eu inseri via Importação de Arquivo .csv
+### Segue abaixo um exemplo de como inserir valores via SQL
 
 ```sql
-INSERT INTO clientes (id, nome, email, data_nascimento, saldo, ativo)
+INSERT INTO hero_info(id,hero,primary_attribute,strength,agility,intelligence,str_gain,agi_gain,int_gain,movement_speed,sight_range_day,sight_range_night,armor,base_attack_speed,min_base_damage,max_base_damage) 
 VALUES 
-    ('1', 'Maria Souza', 'maria@email.com', '1985-08-20', 200.30, TRUE),
-    ('2','Carlos Oliveira', 'carlos@email.com', '1995-03-10', 123.00, FALSE),
-    ('3','Jonatas Silva', 'jonatas@email.com', '1994-05-15', 10.50, FALSE),
-    ('4','Sabrina Castro', 'sabrina@email.com', '1990-11-22', 534.25, TRUE),
-    ('5','Eduardo Lima', 'eduardo@email.com', '1989-09-01', 55.00, TRUE);
+    (1,'alchemist','strength',23,22,25,27,15,18,295,1800,800,308,17,50,56),
+    (2,'axe','strength',25,20,18,28,17,16,315,1800,800,28,17,56,60),
+    (3,'bristleback','strength',22,17,14,27,18,28,295,1800,800,338,18,53,59),
+    .
+    .
+    .
+    (126,'windranger','all',18,17,18,26,19,32,290,1800,800,238,15,39,51);
 ```
 Consultado a Tabela
 
 ```sql
-SELECT * FROM clientes
+SELECT * FROM hero_info
 ```
 
