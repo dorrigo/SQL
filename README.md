@@ -110,22 +110,12 @@ WHERE
     AND sight_range_night > (SELECT AVG(sight_range_night) FROM dota2_base);
 ```
 
+Consulta dos heróis com velocidade de movimento acima da média 
 
 ```sql
-SELECT
-	primary_attribute,
-	COUNT(*) FROM dota2_base 
-    WHERE primary_attribute IN ("strength", "agility", "intelligence", "universal")
-    GROUP BY primary_attribute;
+SELECT hero, movement_speed
+ FROM dota2_base
+WHERE
+	movement_speed > (SELECT AVG(movement_speed) FROM dota2_base);
 ```
 
-
-
-
-```sql
-SELECT
-	primary_attribute,
-	COUNT(*) FROM dota2_base 
-    WHERE primary_attribute IN ("strength", "agility", "intelligence", "universal")
-    GROUP BY primary_attribute;
-```
