@@ -40,9 +40,92 @@ VALUES
     .
     (126,'windranger','all',18,17,18,26,19,32,290,1800,800,238,15,39,51);
 ```
-Consultado a Tabela
+
+Consultado a tabela
 
 ```sql
 SELECT * FROM dota2_base
 ```
 
+Consulta de quantos heróis existem de cada atributo
+
+```sql
+SELECT
+primary_attribute,
+COUNT(*) FROM dota2_base 
+WHERE primary_attribute IN ("strength", "agility", "intelligence", "universal")
+GROUP BY primary_attribute;
+```
+
+Categorizando os heróis por atributo
+
+```sql
+SELECT hero,
+CASE 
+WHEN primary_attribute = "agility" THEN "Agility Hero"
+WHEN primary_attribute = "strength" THEN "Strength Hero"
+WHEN primary_attribute = "intelligence" THEN "Intelligence Hero"
+ELSE "Universal Hero"
+END as hero_type
+FROM dota2_base;
+```
+
+Consulta da Média de Atributos Geral
+
+```sql
+SELECT 
+AVG(strength) as avg_str,
+AVG(agility) as avg_agi,
+AVG(intelligence) as avg_int 
+FROM dota2_base;
+```
+
+Consulta dos heróis que estão acima da média
+
+```sql
+SELECT
+hero, strength, agility, intelligence
+FROM dota2_base
+WHERE 
+   strength > (SELECT AVG(strength) from dota2_base) AND
+   agility > (SELECT AVG(agility) from dota2_base) AND
+   intelligence > (SELECT AVG(intelligence) from dota2_base);
+```
+
+Consulta média da visão dos heróis
+
+```sql
+SELECT  -- consulta média da visão dos heróis
+AVG(sight_range_day),
+AVG(sight_range_night) FROM dota2_base;
+```
+
+Consulta dos heróis com visão acima da média 
+
+```sql
+SELECT hero, sight_range_day, sight_range_night -- consulta dos heróis com visão acima da média 
+FROM dota2_base
+WHERE 
+    sight_range_day > (SELECT AVG(sight_range_day) FROM dota2_base)
+    AND sight_range_night > (SELECT AVG(sight_range_night) FROM dota2_base);
+```
+
+
+```sql
+SELECT
+	primary_attribute,
+	COUNT(*) FROM dota2_base 
+    WHERE primary_attribute IN ("strength", "agility", "intelligence", "universal")
+    GROUP BY primary_attribute;
+```
+
+
+
+
+```sql
+SELECT
+	primary_attribute,
+	COUNT(*) FROM dota2_base 
+    WHERE primary_attribute IN ("strength", "agility", "intelligence", "universal")
+    GROUP BY primary_attribute;
+```
