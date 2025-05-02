@@ -7,7 +7,7 @@ CREATE DATABASE dota2_heroes;
 
 USE dota2_heroes
 
-CREATE TABLE hero_info(
+CREATE TABLE dota2_base(
    id                INT NOT NULL PRIMARY KEY 
   ,hero              VARCHAR(20) NOT NULL
   ,primary_attribute VARCHAR(15) NOT NULL
@@ -20,11 +20,9 @@ CREATE TABLE hero_info(
   ,movement_speed    INT NOT NULL
   ,sight_range_day   INT  NOT NULL
   ,sight_range_night INT NOT NULL
-  ,armor             NUMERIC(5,2) NOT NULL
   ,base_attack_speed NUMERIC(3,1) NOT NULL
   ,min_base_damage   INT  NOT NULL
   ,max_base_damage   INT  NOT NULL
-  ,attack_point      NUMERIC(5,3)
 );
 
 ```
@@ -32,7 +30,7 @@ CREATE TABLE hero_info(
 ### Segue abaixo um exemplo de como inserir valores via SQL
 
 ```sql
-INSERT INTO hero_info(id,hero,primary_attribute,strength,agility,intelligence,str_gain,agi_gain,int_gain,movement_speed,sight_range_day,sight_range_night,armor,base_attack_speed,min_base_damage,max_base_damage) 
+INSERT INTO dota2_base(id,hero,primary_attribute,strength,agility,intelligence,str_gain,agi_gain,int_gain,movement_speed,sight_range_day,sight_range_night,armor,base_attack_speed,min_base_damage,max_base_damage) 
 VALUES 
     (1,'alchemist','strength',23,22,25,27,15,18,295,1800,800,308,17,50,56),
     (2,'axe','strength',25,20,18,28,17,16,315,1800,800,28,17,56,60),
@@ -45,6 +43,6 @@ VALUES
 Consultado a Tabela
 
 ```sql
-SELECT * FROM hero_info
+SELECT * FROM dota2_base
 ```
 
