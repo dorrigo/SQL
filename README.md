@@ -53,7 +53,6 @@ Consulta de quantos heróis existem de cada atributo
 SELECT
 primary_attribute,
 COUNT(*) FROM dota2_base 
-WHERE primary_attribute IN ("strength", "agility", "intelligence", "universal")
 GROUP BY primary_attribute;
 ```
 
