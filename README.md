@@ -125,7 +125,8 @@ SELECT
 hero,
 str_gain,
 agi_gain,
-int_gain
+int_gain,
+primary_attribute
 FROM dota2_base
 WHERE
 	str_gain = (SELECT MAX(str_gain) from dota2_base)
@@ -136,7 +137,8 @@ SELECT
 hero,
 str_gain,
 agi_gain,
-int_gain
+int_gain,
+primary_attribute
 FROM dota2_base
 WHERE
 	agi_gain = (SELECT MAX(agi_gain) from dota2_base)
@@ -147,7 +149,8 @@ SELECT
 hero,
 str_gain,
 agi_gain,
-int_gain
+int_gain,
+primary_attribute
 FROM dota2_base
 WHERE
 	int_gain = (SELECT MAX(int_gain) from dota2_base);
