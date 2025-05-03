@@ -118,3 +118,39 @@ WHERE
 	movement_speed > (SELECT AVG(movement_speed) FROM dota2_base);
 ```
 
+Consulta utilizando UNION ALL para unificar o resultado de três diferentes consultas, em busca dos heróis que mais escalam no seu respectivo atributo
+
+```sql
+SELECT
+hero,
+str_gain,
+agi_gain,
+int_gain
+FROM dota2_base
+WHERE
+	str_gain = (SELECT MAX(str_gain) from dota2_base)
+
+UNION ALL
+
+SELECT
+hero,
+str_gain,
+agi_gain,
+int_gain
+FROM dota2_base
+WHERE
+	agi_gain = (SELECT MAX(agi_gain) from dota2_base)
+    
+UNION ALL
+
+SELECT
+hero,
+str_gain,
+agi_gain,
+int_gain
+FROM dota2_base
+WHERE
+	int_gain = (SELECT MAX(int_gain) from dota2_base);
+
+```
+
