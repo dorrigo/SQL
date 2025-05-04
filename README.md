@@ -157,3 +157,39 @@ WHERE
 
 ```
 
+Consulta dos heróis com diferença de dano maior do que a média geral
+
+```sql
+SELECT 
+h1.hero,
+(h1.max_base_damage - h1.min_base_damage) as diff_damage
+FROM
+dota2_base h1
+WHERE (h1.max_base_damage - h1.min_base_damage) > (
+	SELECT
+    AVG(h2.max_base_damage - h2.min_base_damage)
+    FROM
+    dota2_base h2
+);
+```
+
+Consulta dos heróis com dano acima da média do seu atributo primário
+
+```sql
+SELECT h1.hero, h1.max_base_damage, h1.primary_attribute
+FROM dota2_base h1
+WHERE h1.max_base_damage > (
+    SELECT AVG(h2.max_base_damage)
+    FROM dota2_base h2
+    WHERE h2.primary_attribute = h1.primary_attribute  -- Correlação
+);
+```
+
+
+
+
+
+
+
+
+
