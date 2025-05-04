@@ -170,7 +170,8 @@ WHERE (h1.max_base_damage - h1.min_base_damage) > (
     AVG(h2.max_base_damage - h2.min_base_damage)
     FROM
     dota2_base h2
-);
+)
+ORDER BY diff_damage DESC;
 ```
 
 Consulta dos heróis com dano acima da média do seu atributo primário
