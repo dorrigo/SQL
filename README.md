@@ -181,7 +181,7 @@ FROM dota2_base h1
 WHERE h1.max_base_damage > (
     SELECT AVG(h2.max_base_damage)
     FROM dota2_base h2
-    WHERE h2.primary_attribute = h1.primary_attribute  -- Correlação
+    WHERE h2.primary_attribute = h1.primary_attribute  
 );
 ```
 
