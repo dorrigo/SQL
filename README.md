@@ -191,6 +191,3 @@ WHERE h1.max_base_damage > (
 
 
 
-
-
-
